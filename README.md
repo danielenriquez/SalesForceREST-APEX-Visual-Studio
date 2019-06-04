@@ -9,4 +9,6 @@ SalesForece REST APEX Web Services. Connections from C# Visual Studio
 2-Create SalesForceHelperPartner class on Visial Studio.</br>
 <b>SalesForceHelperPartner.cs</b></br>
 In this class we have to refer SalesForce WSDL xml squema using <b>Project Web Refernces</b></br>
--First we have to download from SlaesForce the API Parner WSDL xml file
+-First we have to download from SlaesForce the API Parner WSDL xml file.
+![sf-api](https://user-images.githubusercontent.com/8003697/58895366-a2e71300-86eb-11e9-9cef-4730b89c0d39.jpg)</br>
+
