@@ -16,6 +16,7 @@ Then from our Visual Studio project, we have to create a Web Reference to this x
 For more information about how to create Web references check this link:</br>
 https://www.c-sharpcorner.com/uploadfile/anavijai/add-web-reference-in-visual-studio-2010/</br></br>
 ![vs-sf-helper](https://user-images.githubusercontent.com/8003697/58895811-b5158100-86ec-11e9-8dec-cfc44c04d2ea.jpg)</br>
-(Look at the Web Reference URL path)</br>
-![vs-sf-helper-WSDL](https://user-images.githubusercontent.com/8003697/58895877-d4aca980-86ec-11e9-8b52-973258237f6d.jpg)
+(Look at the Web Reference URL path)</br></br>
+![vs-sf-helper-WSDL](https://user-images.githubusercontent.com/8003697/58895877-d4aca980-86ec-11e9-8b52-973258237f6d.jpg)</br></br>
+4- Invoque Web Service from aspx c# extention, using <b>SalesForceHelperPartner</b> class to connect to SalesForce and call the <b>APEX REST services</b>.</br></br> 
 
