@@ -10,5 +10,3 @@ SalesForece REST APEX Web Services. Connections from C# Visual Studio
 <b>SalesForceHelperPartner.cs</b></br>
 In this class we have to refer SalesForce WSDL xml squema using <b>Project Web Refernces</b></br>
 -First we have to download from SlaesForce the API Parner WSDL xml file
-https://github.com/danielenriquez/SalesForceREST-APEX-Visual-Studio/issues/1#issue-452085219
-
