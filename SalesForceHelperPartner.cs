@@ -105,7 +105,7 @@ namespace SalesForcePartnerCnn {
             string[] urlParts = Binding.Url.Split('/');
             string mainUrl = urlParts[0] + "//" + urlParts[2];
             //SalesForce REST Service URL
-            string requestUrl = mainUrl + @"/services/apexrest/signallia-leads/";
+            string requestUrl = mainUrl + @"/services/apexrest/restfull-leads/";
             //create request message associated with POST verb
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, requestUrl);
             //return JSON to the caller
@@ -144,7 +144,7 @@ namespace SalesForcePartnerCnn {
             string[] urlParts = Binding.Url.Split('/');
             string mainUrl = urlParts[0] + "//" + urlParts[2];
             //SalesForce REST Service URL
-            string requestUrl = mainUrl + @"/services/apexrest/signallia-leads/";
+            string requestUrl = mainUrl + @"/services/apexrest/restfull-leads/";
             //create request message associated with PUT verb
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Put, requestUrl);
             //return JSON to the caller
@@ -179,7 +179,7 @@ namespace SalesForcePartnerCnn {
             string[] urlParts = Binding.Url.Split('/');
             string mainUrl = urlParts[0] + "//" + urlParts[2];
             //SalesForce REST Service URL
-            string requestUrl = mainUrl + @"/services/apexrest/signallia-leads/" + Id;
+            string requestUrl = mainUrl + @"/services/apexrest/restfull-leads/" + Id;
             //create request message associated with GET verb
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
             //return JSON to the caller
@@ -211,7 +211,7 @@ namespace SalesForcePartnerCnn {
             string[] urlParts = Binding.Url.Split('/');
             string mainUrl = urlParts[0] + "//" + urlParts[2];
             //SalesForce REST Service URL
-            string requestUrl = mainUrl + @"/services/apexrest/signallia-leads/" + Id;
+            string requestUrl = mainUrl + @"/services/apexrest/restfull-leads/" + Id;
             //create request message associated with GET verb
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Delete, requestUrl);
             //return JSON to the caller
@@ -234,109 +234,5 @@ namespace SalesForcePartnerCnn {
         }
 
         #endregion
-
-        #region Preferences
-        /// <summary>
-        /// Connect to SalesForce rest webservices
-        /// GetApexRestServiceAsync
-        /// </summary>
-        /// <returns></returns>
-        public static async Task<string> GetKeysPreferencesServiceAsync(string keysNumber) {
-
-            string[] urlParts = Binding.Url.Split('/');
-            string mainUrl = urlParts[0] + "//" + urlParts[2];
-            //SalesForce REST Service URL
-            string requestUrl = mainUrl + @"/services/apexrest/signallia-keys-preferences/" + keysNumber;
-            //create request message associated with GET verb
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
-            //return JSON to the caller
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            //add token to header
-            request.Headers.Add("Authorization", "Bearer " + Binding.SessionHeaderValue.sessionId);
-
-            HttpClient putClient = new HttpClient();
-
-            var response = await putClient.SendAsync(request);
-
-            if (response.StatusCode == HttpStatusCode.OK) {
-                response.EnsureSuccessStatusCode();
-                return await response.Content.ReadAsStringAsync();
-            } else {
-                //resturn the error message                
-                return Convert.ToString(response.StatusCode);
-            }
-        }
-
-        public static async Task<string> PutKeysPreferencesServiceAsync(string keysNumber, string jsonParams) {
-
-            string requestMessage = jsonParams; // "{\"email\": \"test1111@test.test\", \"phone\": \"0034922777888\", \"lastName\": \"Tester\", \"firstName\": \"Testy\"}";
-
-            HttpContent content = new StringContent(requestMessage, Encoding.UTF8, "application/json");
-
-            string[] urlParts = Binding.Url.Split('/');
-            string mainUrl = urlParts[0] + "//" + urlParts[2];
-            //SalesForce REST Service URL
-            string requestUrl = mainUrl + @"/services/apexrest/signallia-keys-preferences/" + keysNumber;
-            //create request message associated with PUT verb
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Put, requestUrl);
-            //return JSON to the caller
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            //add token to header
-            request.Headers.Add("Authorization", "Bearer " + Binding.SessionHeaderValue.sessionId);
-
-            //add content to HttpRequestMessage;
-            request.Content = content;
-
-            HttpClient putClient = new HttpClient();
-
-            var response = await putClient.SendAsync(request);
-
-            if (response.StatusCode == HttpStatusCode.OK) {
-                response.EnsureSuccessStatusCode();
-                return await response.Content.ReadAsStringAsync();
-            } else {
-                //resturn the error message                
-                return Convert.ToString(response.StatusCode);
-            }
-        }
-
-        #endregion
-
-        #region Request
-        public static async Task<string> PostRequestRestServiceAsync(string jsonParams) {
-
-            string requestMessage = jsonParams; // "{\"email\": \"test1111@test.test\", \"phone\": \"0034922777888\", \"lastName\": \"Tester\", \"firstName\": \"Testy\"}";
-
-            HttpContent content = new StringContent(requestMessage, Encoding.UTF8, "application/json");
-
-            string[] urlParts = Binding.Url.Split('/');
-            string mainUrl = urlParts[0] + "//" + urlParts[2];
-            //SalesForce REST Service URL
-            string requestUrl = mainUrl + @"/services/apexrest/signallia-keys-request/";
-            //create request message associated with POST verb
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, requestUrl);
-            //return JSON to the caller
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            //add token to header
-            request.Headers.Add("Authorization", "Bearer " + Binding.SessionHeaderValue.sessionId);
-
-            //add content to HttpRequestMessage;
-            request.Content = content;
-
-            HttpClient putClient = new HttpClient();
-
-            var response = await putClient.SendAsync(request);
-
-            if (response.StatusCode == HttpStatusCode.OK) {
-                response.EnsureSuccessStatusCode();
-                return await response.Content.ReadAsStringAsync();
-            } else {
-                //resturn the error message                
-                return Convert.ToString(response.StatusCode);
-            }
-        }
     }
 }
