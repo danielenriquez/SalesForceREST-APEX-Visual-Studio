@@ -6,7 +6,7 @@ SalesForce REST APEX Web Services. Connections from C# Visual Studio
 <b><a href="https://github.com/danielenriquez/SalesForceREST-APEX-Visual-Studio/blob/master/LeadRESTServices.cls">LeadRESTServices.cls</a></b></br></br>
 2-Create Lead object class on Visial Studio.</br>
 <b><a href="https://github.com/danielenriquez/SalesForceREST-APEX-Visual-Studio/blob/master/Lead.cs">Lead.cs</a></b></br></br>
-3-Create SalesForceHelperPartner class on Visial Studio.</br>
+3-Create SalesForceHelperPartner class on Visual Studio.</br>
 <b><a href="https://github.com/danielenriquez/SalesForceREST-APEX-Visual-Studio/blob/master/SalesForceHelperPartner.cs">SalesForceHelperPartner.cs</a></b></br></br>
 In this class we have to refer SalesForce WSDL xml squema using <b>Project Web Refernces</b></br>
 -First we have to download from SalesForce the API Parner WSDL xml file.</br></br>
